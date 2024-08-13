@@ -262,7 +262,7 @@ parser.add_argument("--text-position", default="top-left",
                     help="Position of frame count text. The options 'top-left',"\
                     " 'top-middle', 'top-right', 'bottom-left', 'bottom-middle',"\
                     " and 'bottom-right' can be specified.")
-parser.add_argument("--video-codec", default="mpeg4",
+parser.add_argument("--video-codec", default="libx264",
                     help="Output video codec.")
 parser.add_argument("--video-bit-rate", default="12M",
                     help="Output video bit rate(bps)."\
