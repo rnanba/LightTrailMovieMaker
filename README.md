@@ -10,7 +10,7 @@ SharpCap で記録した SER ファイルまたは PNG ファイル用として�
 
 ## 出力サンプル
 
-<video src="https://www.flickr.com/photos/rnanba/53928500895/play/1080p/882c15b91b">
+<video src="https://www.flickr.com/photos/rnanba/53928500895/play/1080p/882c15b91b"></video>
 
 ## 動作環境
 
