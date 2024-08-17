@@ -86,7 +86,7 @@ class Frames:
         return None
 
 class MovieFrames(Frames):
-    def __init__(self, dir):
+    def __init__(self, input):
         super().__init__()
         self.container_in = av.open(input)
         self.stream_in = self.container_in.streams.video[0]
@@ -166,7 +166,7 @@ def convert(input, args, font):
             print("ERROR: Frame rate of input not detected."\
                   " Specify --frame-rate.", file=sys.stderr)
             sys.exit(1)
-        average_rate = str(stream_in.average_rate)
+        average_rate = str(frames.stream_in.average_rate)
 
     TEXT_POSITIONS = {
         "top-left": (0, 0),
@@ -222,9 +222,12 @@ def convert(input, args, font):
         else:
             out_image = Image.fromarray(max_frame_array)
 
-        draw = ImageDraw.Draw(out_image)
-        draw.text(text_pos, f"{frames.frame_index()} / {frames.total_count()}",
-                  args.font_color, font=font, anchor=text_anchor)
+        if not args.no_frame_count:
+            draw = ImageDraw.Draw(out_image)
+            draw.text(text_pos,
+                      f"{frames.frame_index()} / {frames.total_count()}",
+                      args.font_color, font=font, anchor=text_anchor)
+        
         out_frame = av.VideoFrame.from_image(out_image)
         for packet in stream_out.encode(out_frame):
             container_out.mux(packet)
@@ -270,6 +273,7 @@ parser.add_argument("--video-bit-rate", default="12M",
 parser.add_argument("--debayer-image", default=None,
                     help="Bayer pattern to debayer input images. The options"\
                     " 'RGGB', 'GRBG', 'GBRG', and 'BGGR' can be specified.")
+parser.add_argument("--no-frame-count", action="store_true")
 args = parser.parse_args()
 
 font_file = args.font
