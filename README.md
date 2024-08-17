@@ -10,7 +10,7 @@ SharpCap で記録した SER ファイルまたは PNG ファイル用として�
 
 ## 出力サンプル
 
-<video src="https://www.flickr.com/photos/rnanba/53928500895/play/1080p/882c15b91b"></video>
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/rnanba/53928500895/in/photostream/" title="LightTrailMovieMakerサンプル動画"><img src="https://live.staticflickr.com/31337/53928500895_882c15b91b_c.jpg" width="800" height="544" alt="LightTrailMovieMakerサンプル動画"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 ## 動作環境
 
